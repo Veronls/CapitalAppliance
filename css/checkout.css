@@ -1,0 +1,140 @@
+p {
+  line-height: 1.5;
+}
+
+.lh{
+  line-height: 0;
+}
+
+.checkout-section {
+  background-color: #fffdf8;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.checkout-section-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.checkout-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.checkout-field-full {
+  grid-column: 1 / -1;
+}
+
+.checkout-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-label {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: black;
+}
+
+.checkout-input {
+  padding: 0.5rem 0.75rem;
+  border: 0.2rem solid black;
+  border-radius: 0.5rem;
+  background-color: #fffef9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  font: inherit;
+}
+
+.checkout-input:hover {
+  border-color: #ff6600;
+}
+
+.checkout-input:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 0 3px #ff660040;
+}
+
+.checkout-radio-list {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.checkout-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkout-qty-badge {
+  align-self: flex-end;
+  border: 0.2rem solid black;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  background: #fff3e0;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.checkout-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.checkout-grid{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  max-width: 80rem;
+  margin: 2rem auto;
+}
+
+.checkout-box{
+    background-color: #fffdf8;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    max-width: 37.5rem;
+    margin-left: auto;
+    margin-right: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 2rem;
+    width: 80%;
+}
+
+@media (max-width: 62.5rem) {
+  .cart-checkout-div {
+    flex-direction: column;
+  }
+  .checkout-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-box{
+    background-color: #fffdf8;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    max-width: 62.5rem;
+    width: auto;
+    margin-left: 0;
+    /* margin-left: auto; */
+    /* margin-right: 0; */
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 2rem;
+    /* width: 80%; */
+}
+}

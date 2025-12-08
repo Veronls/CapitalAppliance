@@ -1,0 +1,54 @@
+https://www.w3schools.com/howto/
+https://www.w3schools.com/howto/howto_css_sticky_element.asp
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label#:~:text=The%20label%20text%20is%20not,html%20Copy
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-column
+https://stackoverflow.com/questions/24904398/html-correct-way-to-wrap-labels-and-fields
+Google AI Overview: https://www.google.com/search?q=%22html+css+star+rating%22&sca_esv=38fe7d2d6655df42&rlz=1C1CHBF_enCA991CA991&sxsrf=AE3TifOiQOhHvt4FvcmW-aYMXg1arp9umw%3A1762295597614&ei=LX8KacqdJcSz0PEP3vDV4AM&ved=0ahUKEwiK6NbYxtmQAxXEGTQIHV54FTwQ4dUDCBM&uact=5&oq=%22html+css+star+rating%22&gs_lp=Egxnd3Mtd2l6LXNlcnAiFiJodG1sIGNzcyBzdGFyIHJhdGluZyIyBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMggQABiiBBiJBTIFEAAY7wUyCBAAGIAEGKIESPsDUPABWPABcAF4AZABAJgBaaABaaoBAzAuMbgBA8gBAPgBAvgBAZgCAqACccICChAAGLADGNYEGEeYAwCIBgGQBgiSBwMxLjGgB5gEsgcDMC4xuAdrwgcFMC4xLjHIBwU&sclient=gws-wiz-serp
+Search: html css star rating Result:
+<div aria-label="Rating is 3 out of 5">
+              <svg
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                class="checked"
+              >
+                <path d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z" />
+              </svg>
+              <svg
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                class="checked"
+              >
+                <path d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z" />
+              </svg>
+              <svg
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                class="checked"
+              >
+                <path d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z" />
+              </svg>
+              <svg
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+              >
+                <path d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z" />
+              </svg>
+              <svg
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+              >
+                <path d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z" />
+              </svg>
+            </div>
+        
+

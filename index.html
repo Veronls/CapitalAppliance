@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Retro Style Guide</title>
+    <link href="css/main.css" rel="stylesheet">
+          <!--
+      Source - https://stackoverflow.com/questions/5411538/how-to-redirect-one-html-page-to-another-on-load
+      Posted by Valerij
+      Retrieved 11/4/2025, License - CC-BY-SA 4.0
+      -->
+
+<meta http-equiv="refresh" content="0; landing.html" />
+
+  </head>
+
+  <body>
+
+    <header class="site-header">
+      <h1>Capital Appliances</h1>
+
+      <nav class="top-nav">        
+        <a href="index.html">Home</a>
+        <a href="landing.html">Landing</a>
+        <a href="products.html">Catalog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- INTERACTIVE ELEMENTS -->
+    <section id="interactive_elements">
+      <h2>Interactive Elements</h2>
+
+      <section class="element">
+        <h3>In-text Link</h3>
+        <p>Here's a <a class="link" href="https://google.com">classic in-paragraph link</a></p>
+      </section>
+
+      <section class="element">
+        <h3>Navigation Link</h3>
+        <a class="button-nav" href="#">Shop Now</a>
+      </section>
+
+      <section class="element">
+        <h3>Text Input Field with Label</h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+      </section>
+
+      <section class="element">
+        <h3>Image as a Link</h3>
+        <a class="img-link" href="#product">
+          <img src="images/stove1.jpg" alt="Stove Door Closed">
+        </a>
+      </section>
+    </section>
+
+    <!-- TEXT ELEMENTS -->
+    <section id="text_elements">
+      <h2>Text Elements</h2>
+
+      <section class="element">
+        <h3>Headings</h3>
+        <!-- Heading 1 may produce error in validator-->
+        <h1>Heading Level 1</h1>
+        <h2>Heading Level 2</h2>
+        <h3>Heading Level 3</h3>
+        <h4>Heading Level 4</h4>
+      </section>
+
+      <section class="element">
+        <h3>Paragraphs</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+      </section>
+
+      <section class="element">
+        <h3>Numbered Lists</h3>
+        <ol>
+          <li>First item</li>
+          <li>Second item</li>
+          <li>Third item</li>
+        </ol>
+      </section>
+    </section>
+
+    <section id="color_palette">
+      <h2>Colour Palette</h2>
+      <p>This palette best describes my service, combining soft cream backgrounds with bright orange accents and bold black outlines.</p>
+
+      <div class="palette-container">
+        <div class="swatch" style="background-color: #fffaf2;">
+          <p class="swatch-label">Cream Background<br>#FFFaf2</p>
+        </div>
+        <div class="swatch" style="background-color: #ff6600;">
+          <p class="swatch-label">Bright Orange Accent<br>#FF6600</p>
+        </div>
+        <div class="swatch" style="background-color: #fff3e0;">
+          <p class="swatch-label">Soft Peach Panel<br>#FFF3E0</p>
+        </div>
+        <div class="swatch" style="background-color: #000000; color: white;">
+          <p class="swatch-label">Black Outline<br>#000000</p>
+        </div>
+      </div>
+  </section>
+
+    <!-- COMBINED ELEMENTS -->
+    <section id="combined_elements">
+      <h2>Combined Elements</h2>
+
+      <section class="element">
+        <h3>Main Navigation</h3>
+        <div class="nav-container">
+          <div class="nav-left">
+            <img src="images/companylogo.png" alt="Company Logo" height="200" width="200">
+          </div>
+          <div class="nav-right">
+            <a class="button-nav" href="#">Catalog</a>
+            <a class="button-nav" href="#">Contact</a>
+            <a class="button-nav" href="#">Search</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="element">
+        <h3>Product/Service Listing</h3>
+        <section id="product" class="product">
+            <div class="product-header">
+              <h2 class="product-title">24” W APARTMENT SIZE FRIGIDAIRE WHITE STOVE</h2>
+              <span class="product-price">$300</span>
+            </div>
+            <div class="product-container">
+              <!-- Left side: images -->
+              <div class="product-images">
+                <div class="main-image">
+                  <img src="images/stove1.jpg" alt="Stove Closed door" height="400" width="400">
+                </div>
+                <div class="thumbnail-row">
+                  <div class="thumbnail">
+                    <img src="images/stove2.jpg" alt="Stove Open door" height="100" width="100">
+                  </div>
+                  <div class="thumbnail">
+                    <img src="images/stove1.jpg" alt="Stove Closed door" height="100" width="100">
+                  </div>
+                  <div class="thumbnail">
+                    <img src="images/stove2.jpg" alt="Stove Open door" height="100" width="100">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="product-details">
+                <h3>Product Description</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
+                  Vivamus feugiat libero sit amet magna pulvinar, a vulputate orci varius.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
+                  Vivamus feugiat libero sit amet magna pulvinar, a vulputate orci varius.
+                </p>
+                <button class="button-nav"> Click for Contact Info!</button>
+              </div>
+            </div>
+          </section>
+      </section>
+
+      <section class="element">
+        <h3>Contact Section</h3>
+        <div class="contact-container">
+          <p>Contact Me Or I Can Contact You!</p>
+          <p>Cell Phone: 604-582-1123</p>
+          <label for="customer-phone">Your Cell Phone:</label>
+          <input type="text" id="customer-phone" placeholder="Enter your cell number" required>
+
+          <br>
+
+          <label for="customer-email">Email:</label>
+          <input type="text" id="customer-email-subject" placeholder="Subject" required>
+          <input type="text" id="customer-email" placeholder="Enter your Inquiry" required>
+
+          <button type="submit" class="button-nav">Submit</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- CITATIONS -->
+    <section id="citations">
+      <h2>Citations</h2>
+      <ul>
+        <li>FF Unit Pro Font Family | Font.Download. (n.d.). <br> https://font.download/font/ff-unit-pro</li>
+        <li>Nextdoor, & Nextdoor. (n.d.). Capital Appliances - Raleigh, NC - Nextdoor. <br> https://nextdoor.com/pages/capital-appliance-raleigh-nc/</li>
+        <li>Singh, Vinod. (2025, September). 24” W APARTMENT SIZE FRIGIDAIRE WHITE STOVE - $350 (New west). <br> https://vancouver.craigslist.org/bnc/ppd/7877290840.html</li>
+      </ul>
+    </section>
+
+  </body>
+</html>

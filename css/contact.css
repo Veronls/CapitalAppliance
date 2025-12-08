@@ -1,0 +1,45 @@
+.element {
+    border-top: 0;
+    height: 70vh;
+    gap: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fffdf8;
+    justify-content: center;
+    width: 50%;
+}
+
+.label-input input[type="text"]{
+    max-width: 100%;
+}
+.label-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.element img {
+    max-width: 100%;
+}
+
+button {
+    align-self: flex-end;
+}
+
+@media (max-width: 26.56em) {
+    .contact-container {
+        text-align: center;
+        width: 100%;
+    }
+
+    button {
+        align-self: center;
+    }
+}

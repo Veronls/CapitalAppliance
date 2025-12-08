@@ -1,0 +1,92 @@
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 80rem;
+  margin: 2rem auto;
+}
+
+.product-card {
+  background-color: #fffdf8;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  box-shadow: 0.313rem 0.313rem 0 black;
+  transform: translateY(-3px);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 0.3rem solid black;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.4s;
+}
+
+.product-image-container:hover img {
+  border-color: #ff6600;
+}
+
+.product-card-title {
+  font-size: 1.1rem;
+  color: black;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+  max-width: 100%;
+}
+
+.product-card-price {
+  display: block;
+  font-size:1.75rem;
+  font-weight: bold;
+  color: #ff6600;
+  margin-top: auto;
+
+  margin-bottom: 0.5rem;
+}
+
+.button-nav {
+  font-size: 1.25rem;
+  color: white;
+  background-color: #ff6600;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  display: inline-block;
+  transition: all 0.3s;
+
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Responsive layout */
+@media (max-width: 56.25rem) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .product-card-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+    .product-card-title {
+    font-size: 0.9rem;
+  }
+}
