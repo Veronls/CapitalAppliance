@@ -14,6 +14,7 @@
     background-color: #fffdf8;
     justify-content: center;
     width: 50%;
+    margin-top: 16rem;
 }
 
 .label-input input[type="text"]{
@@ -42,4 +43,18 @@ button {
     button {
         align-self: center;
     }
+}
+#customer-message {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 0.2rem solid black;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #fffef9;
+}
+
+#customer-message:hover {
+  border-color: #ff6600;
 }

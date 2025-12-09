@@ -184,7 +184,7 @@
           padding-bottom: 2.5rem;
         "
       >
-        <form class="product-card">
+        <form id="contactForm" class="product-card">
           <h2>Contact Vins</h2>
           <p>
             Looking for something specific? Send us a message and we’ll reply
@@ -273,6 +273,37 @@
     loadRecent();
     </script>
 
+     <script>
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const saved = JSON.parse(localStorage.getItem("saved") || "[]");
+      const savedTitles = saved.map(i => i.title);
+
+      const body = {
+        name: document.getElementById("contact-name").value,
+        phone: document.getElementById("contact-phone").value,
+        email: document.getElementById("contact-email").value,
+        message: document.getElementById("contact-message").value,
+        savedItems: savedTitles
+      };
+
+      const res = await fetch("https://craigslist-scraper.veron.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        alert("Message sent! Vins will contact you shortly.");
+        document.getElementById("contactForm").reset();
+      } else {
+        alert("There was an error. Please try again.");
+      }
+    });
+    </script>
 
 
   </body>

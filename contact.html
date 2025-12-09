@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
+
   <header class="site-header">
     <img src="images/companylogo.png" alt="Capital Appliances logo" height="50" width="50">
     <nav class="nav-right">
@@ -19,11 +20,15 @@
   </header>
 
   <section class="element">
-    <form class="contact-container" style="margin-top: 3rem;">
+    <form id="contactForm" class="contact-container" style="margin-top: 16rem; margin-bottom: 6rem;">
+      
       <h1>Contact Capital Appliances</h1>
       <p>Tell us what you’re looking for or which appliances you’ve saved. We’ll reply with availability, pricing, and pickup/delivery options.</p>
-      <p>Contact Vins at 604-813-0687 <br> <a href="mailto:singh.vins@hotmail.com">singh.vins@hotmail.com</a></p>
 
+      <p>
+        Contact Vins at 604-813-0687 <br>
+        <a href="mailto:singh.vins@hotmail.com">singh.vins@hotmail.com</a>
+      </p>
 
       <div class="label-input">
         <label for="customer-name">Your Name</label>
@@ -42,11 +47,69 @@
 
       <div class="label-input">
         <label for="customer-message">How can we help?</label>
-        <input type="text" id="customer-message" name="message" placeholder="e.g., Saved fridge & washer, need measurements, ask about delivery…" required>
+        <textarea 
+          id="customer-message" 
+          name="message"
+          placeholder="e.g., Saved fridge & washer, need measurements, ask about delivery…" 
+          rows="5"
+          required
+        ></textarea>
+
       </div>
 
       <button type="submit" class="button-nav">Submit Inquiry</button>
+
     </form>
   </section>
+
+
+
+  <!-- ⭐ Autofill saved items + send email through Worker -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // Your site uses "saved" as the key for saved appliances
+    const saved = JSON.parse(localStorage.getItem("saved") || "[]");
+
+    const helpInput = document.getElementById("customer-message");
+
+    if (saved.length > 0 && helpInput) {
+      const summary = saved.map(item => item.title).join(", ");
+      helpInput.value = `Saved items: ${summary}`;
+    }
+  });
+
+
+  document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const saved = JSON.parse(localStorage.getItem("saved") || "[]");
+    const savedTitles = saved.map(i => i.title);
+
+    const body = {
+      name: document.getElementById("customer-name").value,
+      phone: document.getElementById("customer-phone").value,
+      email: document.getElementById("customer-email").value,
+      message: document.getElementById("customer-message").value,
+      savedItems: savedTitles
+    };
+
+    const res = await fetch("https://craigslist-scraper.veron.workers.dev", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+
+    const json = await res.json();
+
+    if (json.success) {
+      alert("Message sent! Vins will contact you shortly.");
+      document.getElementById("contactForm").reset();
+    } else {
+      alert("There was an error. Please try again.");
+    }
+  });
+  </script>
+
 </body>
 </html>
