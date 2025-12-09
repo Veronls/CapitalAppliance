@@ -6,6 +6,8 @@
     <title>Catalog – Capital Appliances</title>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/catalog.css" rel="stylesheet">
+     <link href="main.js" rel="script"></link>
+
   </head>
 
   <body>
@@ -22,89 +24,37 @@
     <main>
       <h1 class="semantic">Available Appliances</h1>
       <p>All appliances are cleaned, tested, and ready for pickup or delivery options. To save items you’re interested in, note their titles and add them to your Saved page or mention them when you contact us.</p>
+      <section class="catalog-grid" id="catalog-grid"></section>
 
-      <section class="catalog-grid">
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/stove1.jpg" alt="24” Frigidaire white apartment-size stove">
-          </div>
-          <h2 class="product-card-title">24&quot; Apartment Size Frigidaire White Stove</h2>
-          <span class="product-card-price">$300</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/fridge1.jpg" alt="Side-by-side Kenmore white refrigerator">
-          </div>
-          <h2 class="product-card-title">Kenmore Side-by-Side Fridge with Water &amp; Ice</h2>
-          <span class="product-card-price">$650</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/w&d1.jpg" alt="Whirlpool commercial washer and dryer set">
-          </div>
-          <h2 class="product-card-title">Whirlpool Commercial Coin Washer &amp; Dryer Set</h2>
-          <span class="product-card-price">$1,498</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/dishwash.jpg" alt="Portable Maytag dishwasher on wheels">
-          </div>
-          <h2 class="product-card-title">Portable Maytag Dishwasher on Wheels</h2>
-          <span class="product-card-price">$350</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/hdwasher.jpg" alt="27” heavy duty Kenmore top load washer">
-          </div>
-          <h2 class="product-card-title">27&quot; Heavy Duty Kenmore Top Load Washer</h2>
-          <span class="product-card-price">$350</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/ssstove.jpg" alt="Stainless steel Whirlpool coil top stove">
-          </div>
-          <h2 class="product-card-title">Stainless Whirlpool Coil Top Stove – Self Cleaning</h2>
-          <span class="product-card-price">$350</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/gtstove.jpg" alt="White Kenmore glass top stove">
-          </div>
-          <h2 class="product-card-title">Kenmore White Glass Top Stove – Self Cleaning</h2>
-          <span class="product-card-price">$350</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/wdstack.jpg" alt="Frigidaire stackable washer and dryer">
-          </div>
-          <h2 class="product-card-title">Frigidaire Stackable Washer &amp; Dryer – Top Load</h2>
-          <span class="product-card-price">$500</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="images/24fridge.jpg" alt="24” apartment size Frigidaire fridge">
-          </div>
-          <h2 class="product-card-title">24&quot; Frigidaire Apartment Size Frost-Free Fridge</h2>
-          <span class="product-card-price">$350</span>
-          <a class="button-nav" href="cart.html">Save This Appliance</a>
-        </div>
-      </section>
     </main>
+    <script>
+    async function loadCatalog() {
+      const res = await fetch("https://craigslist-scraper.veron.workers.dev");
+      const items = await res.json();
+      const container = document.querySelector("#catalog-grid");
+
+      container.innerHTML = items.map(item => `
+        <div class="product-card">
+
+          <div class="product-image-container">
+            <img src="${item.images.find(i => i.includes('600x450'))}" alt="${item.title}">
+          </div>
+
+          <h3 class="product-card-title">${item.title}</h3>
+          <span class="product-card-price">$${item.price}</span>
+
+          <a class="button-nav" href="product.html?id=${item.id}">
+            View Details
+          </a>
+
+        </div>
+      `).join("");
+
+    }
+
+    loadCatalog();
+    </script>
+
+
   </body>
 </html>

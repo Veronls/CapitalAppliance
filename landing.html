@@ -7,6 +7,7 @@
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/landing.css" rel="stylesheet" />
     <link href="css/catalog.css" rel="stylesheet" />
+    <link href="main.js" rel="script"></link>
   </head>
 
   <body>
@@ -58,45 +59,8 @@
       </section>
 
       <!-- RECENT APPLIANCES -->
-      <section style="margin-top: 4rem;">
-        <h2 style="text-align: center;">Recently Added Appliances</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
-          A few examples of current inventory. Stock changes quickly. Contact
-          us to check availability or request something specific.
-        </p>
+      <section class="catalog-grid" id="recent-products"></section>
 
-        <!-- 3-column layout using product card styles -->
-        <section class="catalog-grid" >
-
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="images/stove1.jpg" alt="Frigidaire white stove" />
-            </div>
-            <h3 class="product-card-title">24" Frigidaire Apartment Stove</h3>
-            <span class="product-card-price">$300</span>
-            <a class="button-nav" href="catalog.html">View in Catalog</a>
-          </div>
-
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="images/fridge1.jpg" alt="Kenmore fridge" />
-            </div>
-            <h3 class="product-card-title">Kenmore Side-by-Side Fridge</h3>
-            <span class="product-card-price">$650</span>
-            <a class="button-nav" href="catalog.html">View in Catalog</a>
-          </div>
-
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="images/w&d1.jpg" alt="Washer dryer set" />
-            </div>
-            <h3 class="product-card-title">Whirlpool Commercial Washer & Dryer</h3>
-            <span class="product-card-price">$1,498</span>
-            <a class="button-nav" href="catalog.html">View in Catalog</a>
-          </div>
-
-        </section>
-      </section>
 
       <!-- REVIEWS -->
       <section style="margin-top: 4rem;">
@@ -277,5 +241,39 @@
         </form>
       </section>
     </main>
+
+
+    <script>
+    async function loadRecent() {
+      const res = await fetch("https://craigslist-scraper.veron.workers.dev");
+      const items = await res.json();
+
+      const recent = items.slice(0, 3); // newest first
+
+      const container = document.querySelector("#recent-products");
+      container.innerHTML = recent.map(item => `
+        <div class="product-card">
+          
+          <div class="product-image-container">
+            <img src="${item.images.find(i => i.includes('600x450'))}" alt="${item.title}">
+          </div>
+
+          <h3 class="product-card-title">${item.title}</h3>
+          <span class="product-card-price">$${item.price}</span>
+
+          <a class="button-nav" href="product.html?id=${item.id}">
+            View Details
+          </a>
+
+        </div>
+      `).join("");
+
+    }
+
+    loadRecent();
+    </script>
+
+
+
   </body>
 </html>

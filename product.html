@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appliance Listing</title>
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="site-header">
+    <img src="images/companylogo.png" alt="Company Logo" height="50" width="50">
+    <nav class="nav-right">
+      <a class="button-nav" href="landing.html">Home</a>
+      <a class="button-nav" href="catalog.html">Catalog</a>
+      <a class="button-nav" href="contact.html">Contact</a>
+      <a class="button-nav" href="cart.html">Saved</a>
+    </nav>
+  </header>
+
+  <h1 class="semantic">Product Listing</h1>
+
+  <section id="product" class="product">
+    <div id="product-header" class="product-header">
+      <!-- Filled by JS -->
+    </div>
+
+    <div class="product-container">
+      <!-- LEFT: images -->
+      <div class="product-images">
+        <div class="main-image">
+          <img id="main-img" src="" alt="Product image" height="400" width="400">
+        </div>
+        <div id="thumbnail-row" class="thumbnail-row">
+          <!-- Thumbnails injected here -->
+        </div>
+      </div>
+
+      <!-- RIGHT: details -->
+      <div class="product-details">
+        <h3>Product Description</h3>
+        <p id="product-description"></p>
+
+        <span id="product-price" class="product-price"></span>
+
+        <button class="button-nav" id="save-btn">
+          Save Item
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    async function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      const res = await fetch("https://craigslist-scraper.veron.workers.dev");
+      const items = await res.json();
+      const item = items.find(x => x.id === id);
+
+      if (!item) {
+        document.querySelector("#product").innerHTML = "<p>Product not found.</p>";
+        return;
+      }
+
+      // Filter to full-size images and dedupe
+      const fullImages = [...new Set(item.images.filter(img => img.includes("600x450")))];
+
+      // Header (title + price)
+      const headerEl = document.querySelector("#product-header");
+      headerEl.innerHTML = `
+        <h2 class="product-title">${item.title}</h2>
+        <span class="product-price">$${item.price}</span>
+      `;
+
+      // Main image
+      const mainImg = document.getElementById("main-img");
+      mainImg.src = fullImages[0] || "";
+
+      // Thumbnails
+      const thumbRow = document.getElementById("thumbnail-row");
+      thumbRow.innerHTML = fullImages.map(img => `
+        <div class="thumbnail">
+          <img src="${img}" alt="${item.title}" height="100" width="100">
+        </div>
+      `).join("");
+
+      thumbRow.querySelectorAll("img").forEach(img => {
+        img.addEventListener("click", () => {
+          mainImg.src = img.src;
+        });
+      });
+
+      // Description
+      const descEl = document.getElementById("product-description");
+      descEl.innerHTML = item.description.replace(/\n/g, "<br>");
+
+      // Price in details section
+      document.getElementById("product-price").textContent = `$${item.price}`;
+
+      // Save button logic
+      const saveBtn = document.getElementById("save-btn");
+      const mainImageForSave = fullImages[0] || "";
+
+      function getSaved() {
+        return JSON.parse(localStorage.getItem("saved") || "[]");
+      }
+
+      function isSaved(id) {
+        return getSaved().some(x => x.id === id);
+      }
+
+      function updateButtonText() {
+        saveBtn.textContent = isSaved(item.id) ? "Saved" : "Save Item";
+      }
+
+      function toggleSave() {
+        let saved = getSaved();
+        const index = saved.findIndex(x => x.id === item.id);
+
+        if (index === -1) {
+          saved.push({
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            image: mainImageForSave
+          });
+        } else {
+          saved.splice(index, 1);
+        }
+
+        localStorage.setItem("saved", JSON.stringify(saved));
+        updateButtonText();
+      }
+
+      // Initial state
+      updateButtonText();
+      saveBtn.addEventListener("click", toggleSave);
+    }
+
+    loadProduct();
+  </script>
+</body>
+</html>

@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saved Appliances – Capital Appliances</title>
+    <title>Saved Appliances</title>
+
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/cart.css" rel="stylesheet">
+    <link href="css/catalog.css" rel="stylesheet">
   </head>
 
   <body>
+    <!-- HEADER -->
     <header class="site-header">
-      <img src="images/companylogo.png" alt="Capital Appliances logo" height="50" width="50">
+      <img src="images/companylogo.png" alt="Company Logo" height="50" width="50">
       <nav class="nav-right">
         <a class="button-nav" href="landing.html">Home</a>
         <a class="button-nav" href="catalog.html">Catalog</a>
@@ -21,67 +23,117 @@
 
     <main>
       <h1>Saved Appliances</h1>
-      <p>Use this page to keep track of the appliances you’re interested in. Saving an item does not reserve it or complete a purchase, you’ll still contact Vins to confirm availability.</p>
+      <p style="max-width: 700px; margin: 0 auto 2rem; text-align: center;">
+        Use this page to keep track of the appliances you’re interested in.
+        Saving an item does not reserve it or complete a purchase – you’ll still
+        contact Vins to confirm availability.
+      </p>
 
-      <section class="catalog-grid">
-        <div class="cart-checkout-div">
-          <div class="cart-span-grid">
-            <!-- Example saved items – later this will be dynamic -->
-            <div class="cart-product-card">
-              <div class="cart-product-image-container">
-                <img src="images/stove1.jpg" alt="24” Frigidaire white apartment-size stove">
-              </div>
-              <div class="cart-product-description">
-                <h2 class="cart-product-card-title">24&quot; Frigidaire Apartment Stove</h2>
-                <p class="cart-product-card-price">$300</p>
-                <span class="checkout-qty-badge">Saved</span>
-              </div>
-            </div>
+      <!-- SAVED ITEMS GRID -->
+      <section class="catalog-grid" id="saved-items"></section>
 
-            <div class="cart-product-card">
-              <div class="cart-product-image-container">
-                <img src="images/fridge1.jpg" alt="Kenmore side-by-side refrigerator">
-              </div>
-              <div class="cart-product-description">
-                <h2 class="cart-product-card-title">Kenmore Side-by-Side Fridge</h2>
-                <p class="cart-product-card-price">$650</p>
-                <span class="checkout-qty-badge">Saved</span>
-              </div>
-            </div>
+      <!-- NEXT STEPS BOX -->
+      <section class="inline-div" style="margin-top: 3rem;">
+        <div class="cart-checkout-box">
+          <h2>Next Steps</h2>
 
-            <div class="cart-product-card">
-              <div class="cart-product-image-container">
-                <img src="images/w&d1.jpg" alt="Whirlpool commercial washer and dryer">
-              </div>
-              <div class="cart-product-description">
-                <h2 class="cart-product-card-title">Whirlpool Commercial Washer &amp; Dryer Set</h2>
-                <p class="cart-product-card-price">$1,498</p>
-                <span class="checkout-qty-badge">Saved</span>
-              </div>
-            </div>
+          <div class="cart-checkout-line">
+            <p>1. Review the titles of your saved appliances.</p>
           </div>
 
-          <div class="inline-div">
-            <div class="cart-checkout-box">
-              <h2>Next Steps</h2>
-              <div class="cart-checkout-line">
-                <p>1. Review the titles of your saved appliances.</p>
-              </div>
-              <div class="cart-checkout-line">
-                <p>2. Go to the Contact page and include these titles in your message.</p>
-              </div>
-              <div class="cart-checkout-line">
-                <p>3. Vins will confirm availability, pricing, and pickup/delivery options.</p>
-              </div>
-              <div class="cart-checkout-total">
-                <strong>Reminder:</strong>
-                <strong>Saving items does not reserve them.</strong>
-              </div>
-              <a class="button-nav" href="contact.html">Contact About Saved Items</a>
-            </div>
+          <div class="cart-checkout-line">
+            <p>2. Go to the Contact page and include these titles in your message.</p>
           </div>
+
+          <div class="cart-checkout-line">
+            <p>3. Vins will confirm availability, pricing, and pickup/delivery options.</p>
+          </div>
+
+          <div class="cart-checkout-total">
+            <strong>Reminder:</strong>
+            <strong>Saving items does not reserve them.</strong>
+          </div>
+
+          <a class="button-nav" href="contact.html">Contact About Saved Items</a>
         </div>
       </section>
     </main>
+
+    <script>
+      function loadSaved() {
+        const saved = JSON.parse(localStorage.getItem("saved") || "[]");
+        const container = document.getElementById("saved-items");
+
+        if (!saved.length) {
+          container.innerHTML = `
+            <p style="grid-column: 1 / -1; text-align: center; opacity: .7;">
+              You haven’t saved any appliances yet.
+            </p>
+          `;
+          return;
+        }
+
+        container.innerHTML = saved.map(item => `
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="${item.image}" alt="${item.title}">
+            </div>
+
+            <h3 class="product-card-title">${item.title}</h3>
+            <span class="product-card-price">$${item.price}</span>
+
+            <a class="button-nav" href="product.html?id=${item.id}">
+              View Details
+            </a>
+          </div>
+        `).join("");
+      }
+
+      loadSaved();
+    </script>
+
+    <style>
+  /* Restore proper spacing + layout for the Next Steps box */
+  .cart-checkout-box {
+    background: var(--card);
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  .cart-checkout-box h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .cart-checkout-line {
+    margin-bottom: 0.75rem;
+  }
+
+  .cart-checkout-line p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .cart-checkout-total {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  /* CONTACT BUTTON FIX */
+  .cart-checkout-box .button-nav {
+    display: block;
+    text-align: center;
+    margin-top: 1.25rem;
+    padding: 0.6rem 1rem;
+  }
+</style>
+
   </body>
 </html>
