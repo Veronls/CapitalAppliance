@@ -1,195 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Capital Appliances | Buy and Repair Used Appliances</title>
-    <link href="css/main.css" rel="stylesheet">
-          <!--
-      Source - https://stackoverflow.com/questions/5411538/how-to-redirect-one-html-page-to-another-on-load
-      Posted by Valerij
-      Retrieved 11/4/2025, License - CC-BY-SA 4.0
-      -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capital Appliances – Quality Used Appliances</title>
+    <meta name="description" content="Capital Appliances is a family-run business providing quality used appliances and appliance repairs.
+We sell and service fridges, stoves, washers, dryers, and more at fair prices." />
 
-<meta http-equiv="refresh" content="0; landing.html" />
+    <!-- Keywords (not as important as before, but still fine) -->
+    <meta name="keywords" content="capital appliances, used appliances, appliance repair, appliance sales, used fridges, used stoves, used washers, used dryers, appliance fixes, affordable appliances" />
 
+    <meta name="author" content="Capital Appliances" />
+
+    <!-- Viewport (already have but ensure it exists) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Open Graph (Facebook, iMessage, Discord previews) -->
+    <meta property="og:title" content="Capital Appliances | Quality Used Appliances & Repairs" />
+    <meta property="og:description" content="Family-run appliance sales and repairs. Clean, tested fridges, stoves, washers, dryers, and more." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.capitalappliance.ca/CapitalAppliance/" />
+    <meta property="og:image" content="https://www.capitalappliance.ca/CapitalAppliance/images/cplogo.png" />
+
+    <!-- Twitter Preview -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Capital Appliances | Quality Used Appliances & Repairs" />
+    <meta name="twitter:description" content="Affordable used appliances and appliance repairs. Serving local homes and landlords." />
+    <meta name="twitter:image" content="https://www.capitalappliance.ca/CapitalAppliance/images/cplogo.png" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="CA" />
+    <meta name="geo.placename" content="Canada" />
+    <meta name="robots" content="index, follow" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/landing.css" rel="stylesheet" />
+    <link href="css/catalog.css" rel="stylesheet" />
+    <link href="main.js" rel="script"></link>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Capital Appliances",
+        "description": "Family-run business offering quality used appliances and appliance repairs including fridges, stoves, washers, and dryers.",
+        "url": "https://www.capitalappliance.ca/CapitalAppliance/",
+        "logo": "https://www.capitalappliance.ca/CapitalAppliance/images/cplogo.png",
+        "telephone": "+1-604-813-0687",
+        "email": "singh.vins@hotmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CA"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Canada"
+        }
+      }
+    </script>
   </head>
 
   <body>
-
+    <!-- HEADER -->
     <header class="site-header">
-      <h1>Capital Appliances</h1>
-
-      <nav class="top-nav">        
-        <a href="index.html">Home</a>
-        <a href="landing.html">Landing</a>
-        <a href="products.html">Catalog</a>
-        <a href="contact.html">Contact</a>
+      <img
+        src="images/cplogo.png"
+        alt="Company Logo"
+        height="200"
+        width="200"
+      />
+      <nav class="nav-right">
+        <a class="button-nav" href="landing.html">Home</a>
+        <a class="button-nav" href="catalog.html">Catalog</a>
+        <a class="button-nav" href="contact.html">Contact</a>
+        <a class="button-nav" href="cart.html">Saved</a>
       </nav>
     </header>
 
-    <!-- INTERACTIVE ELEMENTS -->
-    <section id="interactive_elements">
-      <h2>Interactive Elements</h2>
+    <main>
+      <!-- HERO / TITLE -->
+      <section class="hero" style="padding-top: 4rem;">
+        <h1 style="text-align: center; margin-bottom: 0.75rem;">
+          Capital Appliances
+        </h1>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto;">
+          Family-run used appliance shop by Vins & Sarita. Clean, tested
+          fridges, stoves, washers, dryers and more. Serving local homes and
+          landlords with reliable appliances at fair prices.
+        </p>
+        <p style="text-align: center; max-width: 700px; margin: 0.5rem auto 1.5rem;">
+          Every unit is inspected, cleaned, and ready for pickup or delivery options.
+          Whether you're outfitting a rental suite or replacing a broken appliance,
+          we’ll help you find something that fits your space and budget. We also provide appliance diagnostics and repair services for fridges, stoves, washers, dryers, and other household appliances.
+        </p>
 
-      <section class="element">
-        <h3>In-text Link</h3>
-        <p>Here's a <a class="link" href="https://google.com">classic in-paragraph link</a></p>
-      </section>
-
-      <section class="element">
-        <h3>Navigation Link</h3>
-        <a class="button-nav" href="#">Shop Now</a>
-      </section>
-
-      <section class="element">
-        <h3>Text Input Field with Label</h3>
-        <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Enter your name">
-      </section>
-
-      <section class="element">
-        <h3>Image as a Link</h3>
-        <a class="img-link" href="#product">
-          <img src="images/stove1.jpg" alt="Stove Door Closed">
-        </a>
-      </section>
-    </section>
-
-    <!-- TEXT ELEMENTS -->
-    <section id="text_elements">
-      <h2>Text Elements</h2>
-
-      <section class="element">
-        <h3>Headings</h3>
-        <!-- Heading 1 may produce error in validator-->
-        <h1>Heading Level 1</h1>
-        <h2>Heading Level 2</h2>
-        <h3>Heading Level 3</h3>
-        <h4>Heading Level 4</h4>
-      </section>
-
-      <section class="element">
-        <h3>Paragraphs</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
-      </section>
-
-      <section class="element">
-        <h3>Numbered Lists</h3>
-        <ol>
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ol>
-      </section>
-    </section>
-
-    <section id="color_palette">
-      <h2>Colour Palette</h2>
-      <p>This palette best describes my service, combining soft cream backgrounds with bright orange accents and bold black outlines.</p>
-
-      <div class="palette-container">
-        <div class="swatch" style="background-color: #fffaf2;">
-          <p class="swatch-label">Cream Background<br>#FFFaf2</p>
-        </div>
-        <div class="swatch" style="background-color: #ff6600;">
-          <p class="swatch-label">Bright Orange Accent<br>#FF6600</p>
-        </div>
-        <div class="swatch" style="background-color: #fff3e0;">
-          <p class="swatch-label">Soft Peach Panel<br>#FFF3E0</p>
-        </div>
-        <div class="swatch" style="background-color: #000000; color: white;">
-          <p class="swatch-label">Black Outline<br>#000000</p>
-        </div>
-      </div>
-  </section>
-
-    <!-- COMBINED ELEMENTS -->
-    <section id="combined_elements">
-      <h2>Combined Elements</h2>
-
-      <section class="element">
-        <h3>Main Navigation</h3>
-        <div class="nav-container">
-          <div class="nav-left">
-            <img src="images/companylogo.png" alt="Company Logo" height="200" width="200">
-          </div>
-          <div class="nav-right">
-            <a class="button-nav" href="#">Catalog</a>
-            <a class="button-nav" href="#">Contact</a>
-            <a class="button-nav" href="#">Search</a>
-          </div>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+          "
+        >
+          <a class="button-nav" href="catalog.html">Browse Catalog</a>
+          <a class="button-nav" href="#contact">Contact Us</a>
         </div>
       </section>
 
-      <section class="element">
-        <h3>Product/Service Listing</h3>
-        <section id="product" class="product">
-            <div class="product-header">
-              <h2 class="product-title">24” W APARTMENT SIZE FRIGIDAIRE WHITE STOVE</h2>
-              <span class="product-price">$300</span>
+      <!-- RECENT APPLIANCES -->
+       <h2 style="text-align: center;">Featured Products</h2>
+      <section class="catalog-grid" id="recent-products"></section>
+
+
+      <!-- REVIEWS -->
+      <section style="margin-top: 4rem;">
+        <h2 style="text-align: center;">Customer Reviews</h2>
+        <div id="reviews">
+          <article>
+            <h3>“Honest and easy to work with”</h3>
+            <div role="img" aria-label="Rating is 5 out of 5">
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
             </div>
-            <div class="product-container">
-              <!-- Left side: images -->
-              <div class="product-images">
-                <div class="main-image">
-                  <img src="images/stove1.jpg" alt="Stove Closed door" height="400" width="400">
-                </div>
-                <div class="thumbnail-row">
-                  <div class="thumbnail">
-                    <img src="images/stove2.jpg" alt="Stove Open door" height="100" width="100">
-                  </div>
-                  <div class="thumbnail">
-                    <img src="images/stove1.jpg" alt="Stove Closed door" height="100" width="100">
-                  </div>
-                  <div class="thumbnail">
-                    <img src="images/stove2.jpg" alt="Stove Open door" height="100" width="100">
-                  </div>
-                </div>
-              </div>
+            <p>
+              “Picked up a fridge and stove, everything was clean, fully tested,
+              and ready to go. Vins was super friendly and upfront.”
+            </p>
+          </article>
 
-
-              <div class="product-details">
-                <h3>Product Description</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
-                  Vivamus feugiat libero sit amet magna pulvinar, a vulputate orci varius.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. 
-                  Vivamus feugiat libero sit amet magna pulvinar, a vulputate orci varius.
-                </p>
-                <button class="button-nav"> Click for Contact Info!</button>
-              </div>
+          <article>
+            <h3>“Perfect for our rental suite”</h3>
+            <div role="img" aria-label="Rating is 4 out of 5">
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
             </div>
-          </section>
-      </section>
+            <p>
+              “Needed a washer and dryer set. Vins helped us choose and arranged
+              delivery. Great experience.”
+            </p>
+          </article>
 
-      <section class="element">
-        <h3>Contact Section</h3>
-        <div class="contact-container">
-          <p>Contact Me Or I Can Contact You!</p>
-          <p>Cell Phone: 604-582-1123</p>
-          <label for="customer-phone">Your Cell Phone:</label>
-          <input type="text" id="customer-phone" placeholder="Enter your cell number" required>
-
-          <br>
-
-          <label for="customer-email">Email:</label>
-          <input type="text" id="customer-email-subject" placeholder="Subject" required>
-          <input type="text" id="customer-email" placeholder="Enter your Inquiry" required>
-
-          <button type="submit" class="button-nav">Submit</button>
+          <article>
+            <h3>“Fast and reliable”</h3>
+            <div role="img" aria-label="Rating is 5 out of 5">
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+              <svg class="checked" width="32" height="32" viewBox="0 0 32 32">
+                <path
+                  d="M16 0L20.6 11.2L32 12.4L23.2 19.6L26.4 32L16 25.2L5.6 32L8.8 19.6L0 12.4L11.4 11.2L16 0Z"
+                />
+              </svg>
+            </div>
+            <p>
+              “Texted photos of options before we arrived. Felt like buying from
+              a neighbour instead of a big store.”
+            </p>
+          </article>
         </div>
       </section>
-    </section>
 
-    <!-- CITATIONS -->
-    <section id="citations">
-      <h2>Citations</h2>
-      <ul>
-        <li>FF Unit Pro Font Family | Font.Download. (n.d.). <br> https://font.download/font/ff-unit-pro</li>
-        <li>Nextdoor, & Nextdoor. (n.d.). Capital Appliances - Raleigh, NC - Nextdoor. <br> https://nextdoor.com/pages/capital-appliance-raleigh-nc/</li>
-        <li>Singh, Vinod. (2025, September). 24” W APARTMENT SIZE FRIGIDAIRE WHITE STOVE - $350 (New west). <br> https://vancouver.craigslist.org/bnc/ppd/7877290840.html</li>
-      </ul>
-    </section>
+      <!-- CONTACT (lighter background) -->
+      <section
+        id="contact"
+        class="element"
+        style="
+          background: var(--card);
+          margin-top: 5rem;
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
+        "
+      >
+        <form id="contactForm" class="product-card">
+          <h2>Contact Vins</h2>
+          <p>
+            Looking for something specific? Send us a message and we’ll reply
+            with availability, pricing, and pickup/delivery options.
+          </p>
+          <p>Contact Vins at 604-813-0687 <br> <a href="mailto:singh.vins@hotmail.com">singh.vins@hotmail.com</a></p>
+          <div style="grid-template-columns: repeat(2, 1fr);"></div>
+          <div class="label-input" style="margin-top: 0.5rem;">
+            <label for="contact-name">Your Name</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="label-input" style="margin-top: 0.5rem;">
+            <label for="contact-phone">Your Phone</label>
+            <input
+              type="text"
+              id="contact-phone"
+              name="phone"
+              placeholder="Best number to reach you"
+              required
+            />
+          </div>
+
+          <div class="label-input" style="margin-top: 0.5rem;">
+            <label for="contact-email">Email (optional)</label>
+            <input
+              type="text"
+              id="contact-email"
+              name="email"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div class="label-input" style="margin-top: 0.5rem;">
+            <label for="contact-message">How can we help?</label>
+            <input
+              type="text"
+              id="contact-message"
+              name="message"
+              placeholder="e.g., saved washer & fridge, need delivery quote…"
+              required
+            />
+          </div>
+
+        </div>
+
+          <button type="submit" class="button-nav" style="margin-top: 0.5rem;">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+
+    <script>
+    async function loadRecent() {
+      const res = await fetch("https://craigslist-scraper.veron.workers.dev");
+      const items = await res.json();
+
+      const recent = items.slice(0, 3); // newest first
+
+      const container = document.querySelector("#recent-products");
+      container.innerHTML = recent.map(item => `
+        <div class="product-card">
+          
+          <div class="product-image-container">
+            <img src="${item.images.find(i => i.includes('600x450'))}" alt="${item.title}">
+          </div>
+
+          <h3 class="product-card-title">${item.title}</h3>
+          <span class="product-card-price">$${item.price}</span>
+
+          <a class="button-nav" href="product.html?id=${item.id}">
+            View Details
+          </a>
+
+        </div>
+      `).join("");
+
+    }
+
+    loadRecent();
+    </script>
+
+     <script>
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const saved = JSON.parse(localStorage.getItem("saved") || "[]");
+      const savedTitles = saved.map(i => i.title);
+
+      const body = {
+        name: document.getElementById("contact-name").value,
+        phone: document.getElementById("contact-phone").value,
+        email: document.getElementById("contact-email").value,
+        message: document.getElementById("contact-message").value,
+        savedItems: savedTitles
+      };
+
+      const res = await fetch("https://craigslist-scraper.veron.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        alert("Message sent! Vins will contact you shortly.");
+        document.getElementById("contactForm").reset();
+      } else {
+        alert("There was an error. Please try again.");
+      }
+    });
+    </script>
+
 
   </body>
 </html>
