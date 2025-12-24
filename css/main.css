@@ -61,7 +61,16 @@ p {
 
 .site-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  height: 6rem; /* FIXED header height */
+}
+.site-header img {
+  height: 100%;
+  max-height: 6rem;     /* desktop size */
+  width: auto;
+  object-fit: contain;
 }
 
 nav {
@@ -426,6 +435,10 @@ nav {
   nav {
     flex-direction: row;
     text-align: center;
+  }
+
+    .site-header img {
+    max-height: 5rem; /* visually larger logo */
   }
 }
 
