@@ -9,6 +9,7 @@ body {
   padding: 2rem;
   background-color: #fffaf2; 
   color: #1a1a1a;
+  padding-top: 2rem;
 }
 
 section {
@@ -21,7 +22,9 @@ section {
   display: flex;
   flex-direction: column;
 }
-
+main {
+  padding-top: 6rem;
+}
 
 .element {
   padding-bottom: 2rem;
@@ -72,6 +75,7 @@ p {
   width: auto;
   object-fit: contain;
 }
+
 
 nav {
   display: flex;
