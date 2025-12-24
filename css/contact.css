@@ -13,7 +13,7 @@
     gap: 1rem;
     background-color: #fffdf8;
     justify-content: center;
-    width: 50%;
+    width: 85%;
     margin-top: 16rem;
 }
 
@@ -34,7 +34,7 @@ button {
     align-self: flex-end;
 }
 
-@media (max-width: 26.56em) {
+@media (max-width: 26.56rem) {
     .contact-container {
         text-align: center;
         width: 100%;
