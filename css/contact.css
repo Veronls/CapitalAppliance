@@ -1,6 +1,7 @@
 .element {
     border-top: 0;
-    height: 70vh;
+    min-height: 100vh;
+    padding: 2rem 1rem;
     gap: 2.5rem;
     display: flex;
     align-items: center;
@@ -14,7 +15,7 @@
     background-color: #fffdf8;
     justify-content: center;
     width: 85%;
-    margin-top: 16rem;
+    margin-top: 4rem;
 }
 
 .label-input input[type="text"]{
@@ -37,7 +38,8 @@ button {
 @media (max-width: 26.56rem) {
     .contact-container {
         text-align: center;
-        width: 100%;
+       margin-top: 2rem;
+
     }
 
     button {
@@ -46,7 +48,9 @@ button {
 }
 #customer-message {
   padding: 0.75rem;
-  display: flex;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   flex-direction: column;
   gap: 0.25rem;
   border: 0.2rem solid black;
