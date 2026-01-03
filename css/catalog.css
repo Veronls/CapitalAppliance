@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url(../fonts/FFUnitProRegular.otf) format('opentype');
+}
+
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -89,4 +94,115 @@
     .product-card-title {
     font-size: 0.9rem;
   }
+}
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+  justify-content: center;
+}
+
+.filter-btn.active {
+  background-color: black;
+  color: #ff6600;
+}
+
+/* Header row */
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Dropdown wrapper */
+.filter-dropdown {
+  position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: #fffdf8;
+  border: 0.2rem solid black;
+  border-radius: 0.75rem;
+  padding: 0.6rem;
+  z-index: 20;
+}
+
+/* Show on hover OR click */
+.filter-dropdown:hover .dropdown-menu,
+.filter-dropdown.open .dropdown-menu {
+  display: flex;
+}
+
+/* Active state */
+.filter-btn.active {
+  background-color: black;
+  color: #ff6600;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 35rem) {
+  .catalog-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-dropdown {
+    align-self: left;
+  }
+  .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  transform: translateX(4.5rem); 
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: #fffdf8;
+  border: 0.2rem solid black;
+  border-radius: 0.75rem;
+  padding: 0.6rem;
+  z-index: 20;
+}
+}
+
+@media(max-width: 38.75rem){
+ .title{
+    margin-top:3rem;
+  }
+}
+
+
+.filter-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* IMPORTANT: keep hover active across button → menu */
+.dropdown-toggle {
+  position: relative;
+  z-index: 2;
+}
+
+/* Slight invisible hover buffer to prevent flicker */
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -0.75rem;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
+}
+.dropdown-toggle {
+  min-width: 8.5rem;   /* pick a size that fits your longest label */
+  text-align: center;
+  white-space: nowrap;
 }

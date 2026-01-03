@@ -24,24 +24,43 @@
     </header>
 
     <main>
-      <h1 class="semantic">Available Appliances</h1>
-      <p>All appliances are cleaned, tested, and ready for pickup or delivery options. To save items you’re interested in, note their titles and add them to your Saved page or mention them when you contact us.</p>
+      <div class="catalog-header">
+        <h1 class="title" class="semantic">Available Appliances</h1>
 
+        <div class="filter-dropdown">
+          <button class="button-nav dropdown-toggle">
+            All ▾
+          </button>
 
+          <div class="dropdown-menu">
+            <button class="button-nav filter-btn active" data-filter="all">All</button>
+            <button class="button-nav filter-btn" data-filter="washer">Washer</button>
+            <button class="button-nav filter-btn" data-filter="dryer">Dryer</button>
+            <button class="button-nav filter-btn" data-filter="fridge">Fridge</button>
+            <button class="button-nav filter-btn" data-filter="stove">Stove</button>
+            <button class="button-nav filter-btn" data-filter="dishwasher">Dishwasher</button>
+          </div>
+        </div>
+      </div>
       <section class="catalog-grid" id="catalog-grid"></section>
 
     </main>
     <script>
+    let ALL_ITEMS = [];
+
     async function loadCatalog() {
       const res = await fetch("https://craigslist-scraper.veron.workers.dev");
-      const items = await res.json();
+      ALL_ITEMS = await res.json();
+      renderCatalog(ALL_ITEMS);
+    }
+
+    function renderCatalog(items) {
       const container = document.querySelector("#catalog-grid");
 
       container.innerHTML = items.map(item => `
         <div class="product-card">
-
           <div class="product-image-container">
-            <img src="${item.images.find(i => i.includes('600x450'))}" alt="${item.title}">
+            <img src="${item.images.find(i => i.includes('600x450')) || item.images[0]}" alt="${item.title}">
           </div>
 
           <h3 class="product-card-title">${item.title}</h3>
@@ -50,15 +69,58 @@
           <a class="button-nav" href="product.html?id=${item.id}">
             View Details
           </a>
-
         </div>
       `).join("");
-
     }
 
-    loadCatalog();
-    </script>
+    function applyFilter(type) {
+      if (type === "all") {
+        renderCatalog(ALL_ITEMS);
+        return;
+      }
 
+      const filtered = ALL_ITEMS.filter(item =>
+        item.title.toLowerCase().includes(type)
+      );
+
+      renderCatalog(filtered);
+    }
+
+    // Button behavior
+  document.addEventListener("DOMContentLoaded", () => {
+    loadCatalog();
+    const dropdown = document.querySelector(".filter-dropdown");
+    const toggle = document.querySelector(".dropdown-toggle");
+    const buttons = document.querySelectorAll(".filter-btn");
+
+    // Toggle dropdown on click (desktop & mobile)
+    toggle.addEventListener("click", () => {
+      dropdown.classList.toggle("open");
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        toggle.textContent = `${btn.textContent} ▾`;
+        dropdown.classList.remove("open");
+
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+      }
+    });
+  });
+    </script>
+  <script>
+
+  </script>
 
   </body>
 </html>

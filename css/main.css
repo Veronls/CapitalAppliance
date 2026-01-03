@@ -22,9 +22,7 @@ section {
   display: flex;
   flex-direction: column;
 }
-main {
-  padding-top: 6rem;
-}
+
 
 .element {
   padding-bottom: 2rem;
@@ -405,7 +403,7 @@ nav {
   font-weight: bold;
 }
 
-@media (max-width: 20rem) {
+@media (max-width: 19.5rem) {
   .nav-container {
     text-align: center;
     display: flex;
